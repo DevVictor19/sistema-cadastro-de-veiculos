@@ -1,3 +1,5 @@
+import { useMutation } from 'react-query';
+
 import { Link } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
@@ -7,10 +9,17 @@ import MuiLink from '@mui/material/Link';
 
 import FormControl from '~/components/forms/FormControl';
 import signupSchema, { SignupSchema } from './validation';
+import signup from '~/services/auth/signup';
+import Feedback from '~/components/Feedback';
 
 function Signup() {
+  const { isLoading, isSuccess, isError, mutate } = useMutation({
+    mutationKey: ['user'],
+    mutationFn: (user: SignupSchema) => signup(user),
+  });
+
   const handleSubmit = (data: SignupSchema) => {
-    console.log(data);
+    mutate(data);
   };
 
   return (
@@ -18,6 +27,13 @@ function Signup() {
       <Typography variant="h5" textAlign="center" mb={3}>
         Signup
       </Typography>
+      <Feedback
+        successMessage="Usuário cadastrado com sucesso"
+        errorMessage="Não foi possível cadastrar usuário"
+        isSuccess={isSuccess}
+        isError={isError}
+        isLoading={isLoading}
+      />
       <FormControl
         formValidationSchema={signupSchema}
         inputs={[
@@ -29,6 +45,7 @@ function Signup() {
       >
         <Button
           type="submit"
+          disabled={isLoading}
           variant="contained"
           sx={{ marginTop: 2, marginBottom: 2 }}
         >
