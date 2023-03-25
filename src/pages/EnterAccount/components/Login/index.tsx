@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -33,7 +35,9 @@ function Login() {
           Entrar
         </Button>
       </FormControl>
-      <MuiLink>Não possui uma conta? Cadastre-se</MuiLink>
+      <MuiLink variant="body2" component={Link} to="signup">
+        Não possui uma conta? Cadastre-se
+      </MuiLink>
     </Box>
   );
 }
