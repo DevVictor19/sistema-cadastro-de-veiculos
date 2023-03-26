@@ -8,11 +8,13 @@ import Box from '@mui/material/Box';
 import MuiLink from '@mui/material/Link';
 
 import FormControl from '~/components/forms/FormControl';
+import { useAuthContext } from '~/contexts/AuthContext';
 import signupSchema, { SignupSchema } from './validation';
-import signup from '~/services/auth/signup';
 import Feedback from '~/components/Feedback';
 
 function Signup() {
+  const { signup } = useAuthContext();
+
   const { isLoading, isSuccess, isError, mutate } = useMutation({
     mutationKey: ['user'],
     mutationFn: (user: SignupSchema) => signup(user),
