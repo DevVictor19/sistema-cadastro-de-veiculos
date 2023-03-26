@@ -10,7 +10,7 @@ function EnterAccount() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '96vh',
+        minHeight: '100vh',
       }}
     >
       <Paper
