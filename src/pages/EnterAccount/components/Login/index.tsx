@@ -7,11 +7,13 @@ import Box from '@mui/material/Box';
 import MuiLink from '@mui/material/Link';
 
 import FormControl from '~/components/forms/FormControl';
-import login from '~/services/auth/login';
+import { useAuthContext } from '~/contexts/AuthContext';
 import loginSchema, { LoginSchema } from './validation';
 import Feedback from '~/components/Feedback';
 
 function Login() {
+  const { login } = useAuthContext();
+
   const { isLoading, isSuccess, isError, mutate } = useMutation({
     mutationKey: ['user'],
     mutationFn: (cpf: string) => login(cpf),
