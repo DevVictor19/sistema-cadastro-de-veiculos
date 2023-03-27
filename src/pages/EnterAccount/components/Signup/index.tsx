@@ -1,5 +1,5 @@
+import { useId } from 'react';
 import { useMutation } from 'react-query';
-
 import { Link } from 'react-router-dom';
 
 import Typography from '@mui/material/Typography';
@@ -14,6 +14,7 @@ import Feedback from '~/components/Feedback';
 
 function Signup() {
   const { signup } = useAuthContext();
+  const formId = useId();
 
   const { isLoading, isSuccess, isError, mutate } = useMutation({
     mutationKey: ['user'],
@@ -36,24 +37,30 @@ function Signup() {
         isError={isError}
         isLoading={isLoading}
       />
-      <FormControl
-        formValidationSchema={signupSchema}
-        inputs={[
-          { name: 'nome', label: 'Nome' },
-          { name: 'cpf', label: 'CPF' },
-        ]}
-        onSubmit={handleSubmit}
-        styles={{ display: 'grid', width: '100%' }}
-      >
+      <Box sx={{ display: 'grid', width: '100%' }}>
+        <FormControl
+          styles={{ display: 'grid', width: '100%' }}
+          formId={formId}
+          defaultValues={null}
+          formValidationSchema={signupSchema}
+          inputs={[
+            { name: 'nome', label: 'Nome' },
+            { name: 'cpf', label: 'CPF' },
+          ]}
+          inputMargin="normal"
+          inputVariant="outlined"
+          onSubmit={handleSubmit}
+        />
         <Button
           type="submit"
+          form={formId}
           disabled={isLoading}
           variant="contained"
           sx={{ marginTop: 2, marginBottom: 2 }}
         >
           Cadastrar
         </Button>
-      </FormControl>
+      </Box>
       <MuiLink variant="body2" component={Link} to="/">
         Já possui uma conta? Faça login
       </MuiLink>
