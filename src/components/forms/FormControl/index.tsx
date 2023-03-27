@@ -1,6 +1,4 @@
-import { ReactNode } from 'react';
-
-import { useForm, FieldValues, Path } from 'react-hook-form';
+import { useForm, FieldValues, Path, DeepPartial } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ZodSchema } from 'zod';
 import { SxProps, Theme } from '@mui/material';
@@ -16,17 +14,23 @@ export interface FormControlInput<T> {
 
 interface FormControlProps<T extends FieldValues> {
   inputs: FormControlInput<T>[];
+  inputMargin: 'none' | 'normal' | 'dense';
+  inputVariant: 'outlined' | 'filled' | 'standard';
   formValidationSchema: ZodSchema<T>;
+  formId: string;
+  defaultValues: DeepPartial<T> | null;
   styles: SxProps<Theme>;
-  children: ReactNode;
   onSubmit: (data: T) => void;
 }
 
 function FormControl<T extends FieldValues>({
   inputs,
+  inputMargin,
+  inputVariant,
   formValidationSchema,
+  formId,
+  defaultValues,
   styles,
-  children,
   onSubmit,
 }: FormControlProps<T>) {
   const {
@@ -35,10 +39,12 @@ function FormControl<T extends FieldValues>({
     formState: { errors },
   } = useForm<T>({
     resolver: zodResolver(formValidationSchema),
+    ...(defaultValues && { defaultValues }),
   });
 
   return (
     <Box
+      id={formId}
       component="form"
       autoComplete="off"
       onSubmit={handleSubmit(onSubmit)}
@@ -52,11 +58,10 @@ function FormControl<T extends FieldValues>({
           validation={control}
           invalid={!!errors[name]}
           helperText={errors[name]?.message as string}
-          margin="normal"
-          variant="outlined"
+          margin={inputMargin}
+          variant={inputVariant}
         />
       ))}
-      {children}
     </Box>
   );
 }
