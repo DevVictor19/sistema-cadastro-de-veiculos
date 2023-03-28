@@ -1,3 +1,5 @@
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
 import ListItem from '@mui/material/ListItem';
@@ -16,12 +18,17 @@ interface AsideMenuListItem {
 }
 
 function AsideMenu() {
+  const urlParts = useLocation().pathname.split('/');
+  const navigate = useNavigate();
+
+  const currentLocation = urlParts[urlParts.length - 1];
+
   const listItems: AsideMenuListItem[] = [
     {
       icon: <DirectionsCarIcon />,
       label: 'Cadastro de veículos',
-      active: false,
-      handleClick: () => {},
+      active: currentLocation === 'vehicle-panel',
+      handleClick: () => navigate('vehicle-panel'),
     },
     {
       icon: <LocalGasStationIcon />,
