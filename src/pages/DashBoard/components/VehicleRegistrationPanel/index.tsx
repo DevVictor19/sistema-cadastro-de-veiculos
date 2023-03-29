@@ -10,7 +10,7 @@ import VehicleAddButton from './VehicleAddButton';
 
 function VehicleRegistrationPanel() {
   const { data, isLoading } = useQuery({
-    queryKey: ['vehicles'],
+    queryKey: ['veiculos'],
     queryFn: getVehicles,
     refetchOnWindowFocus: false,
   });

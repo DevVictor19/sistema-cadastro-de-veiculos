@@ -1,19 +1,19 @@
 {
-  "user": [],
-  "vehicles": [
+  "usuarios": [],
+  "veiculos": [
     {
       "placa": "AAA-4321",
       "renavam": "12312313232",
       "cor": "Preto",
       "modelo": "Corolla",
       "marca": "Honda",
-      "potencia": "4000",
+      "potencia": "3000",
       "id": 1
     },
     {
       "placa": "AFD3B43",
       "renavam": "38493213455",
-      "cor": "Branca",
+      "cor": "Preta",
       "modelo": "Toro",
       "marca": "Fiat",
       "potencia": "4000",

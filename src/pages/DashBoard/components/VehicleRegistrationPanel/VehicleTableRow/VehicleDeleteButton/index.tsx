@@ -29,7 +29,7 @@ function VehicleDeleteButton({ vehicleId }: VehicleDeleteButtonProps) {
 
   const handleCloseOnSuccess = () => {
     handleClose();
-    queryClient.invalidateQueries(['vehicles']);
+    queryClient.invalidateQueries(['veiculos']);
   };
 
   const handleOpen = () => {

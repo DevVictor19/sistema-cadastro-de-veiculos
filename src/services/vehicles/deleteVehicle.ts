@@ -1,7 +1,7 @@
 import api from '~/lib/axios';
 
 async function deleteVehicle(id: number) {
-  await api.delete(`/vehicles/${id}`);
+  await api.delete(`/veiculos/${id}`);
 }
 
 export default deleteVehicle;

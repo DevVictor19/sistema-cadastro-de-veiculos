@@ -24,7 +24,7 @@ function VehicleEditButton({ vehicleId }: VehicleEditButtonProps) {
   const queryClient = useQueryClient();
 
   const vehicleQuery = useQuery({
-    queryKey: ['vehicles', vehicleId],
+    queryKey: ['veiculos', vehicleId],
     queryFn: () => getVehicleById(vehicleId),
     enabled: open,
   });
@@ -32,8 +32,8 @@ function VehicleEditButton({ vehicleId }: VehicleEditButtonProps) {
   const vehicleMutation = useMutation({
     mutationFn: (payload: VehicleSchema) => putVehicle(payload, vehicleId),
     onSuccess: (_, payload) => {
-      queryClient.invalidateQueries(['vehicles']);
-      queryClient.setQueryData(['vahicles', vehicleId], payload);
+      queryClient.invalidateQueries(['veiculos']);
+      queryClient.setQueryData(['veiculos', vehicleId], payload);
     },
   });
 
