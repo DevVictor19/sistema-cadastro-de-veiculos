@@ -8,9 +8,10 @@ import Box from '@mui/material/Box';
 import MuiLink from '@mui/material/Link';
 
 import FormControl from '~/components/forms/FormControl';
+import Feedback from '~/components/Feedback';
+import InputText from '~/components/forms/InputText';
 import { useAuthContext } from '~/contexts/AuthContext';
 import signupSchema, { SignupSchema } from './validation';
-import Feedback from '~/components/Feedback';
 
 function Signup() {
   const { signup } = useAuthContext();
@@ -43,12 +44,28 @@ function Signup() {
           formId={formId}
           defaultValues={null}
           formValidationSchema={signupSchema}
-          inputs={[
-            { name: 'nome', label: 'Nome' },
-            { name: 'cpf', label: 'CPF' },
-          ]}
-          inputMargin="normal"
-          inputVariant="outlined"
+          render={(control, errors) => (
+            <>
+              <InputText
+                name="nome"
+                label="Nome"
+                validation={control}
+                invalid={!!errors.nome}
+                helperText={errors.nome?.message as string}
+                margin="normal"
+                variant="outlined"
+              />
+              <InputText
+                name="cpf"
+                label="Cpf"
+                validation={control}
+                invalid={!!errors.cpf}
+                helperText={errors.cpf?.message as string}
+                margin="normal"
+                variant="outlined"
+              />
+            </>
+          )}
           onSubmit={handleSubmit}
         />
         <Button

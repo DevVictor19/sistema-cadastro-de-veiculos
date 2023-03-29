@@ -11,6 +11,7 @@ import vehicleSchema, {
 import Feedback from '~/components/Feedback';
 import Dialog from '~/components/Dialog';
 import FormControl from '~/components/forms/FormControl';
+import InputText from '~/components/forms/InputText';
 import getVehicleById from '~/services/vehicles/getVechicleById';
 import putVehicle from '~/services/vehicles/putVehicle';
 
@@ -77,17 +78,65 @@ function VehicleEditButton({ vehicleId }: VehicleEditButtonProps) {
                 formId={formId}
                 formValidationSchema={vehicleSchema}
                 defaultValues={vehicleQuery.data}
-                inputs={[
-                  { name: 'renavam', label: 'Reanavam' },
-                  { name: 'placa', label: 'Placa' },
-                  { name: 'modelo', label: 'Modelo' },
-                  { name: 'cor', label: 'Cor' },
-                  { name: 'marca', label: 'Marca' },
-                  { name: 'potencia', label: 'Potência' },
-                ]}
-                inputMargin="none"
-                inputVariant="outlined"
                 onSubmit={handleMutation}
+                render={(control, errors) => (
+                  <>
+                    <InputText
+                      name="renavam"
+                      label="Renavam"
+                      validation={control}
+                      invalid={!!errors.renavam}
+                      helperText={errors.renavam?.message as string}
+                      margin="none"
+                      variant="outlined"
+                    />
+                    <InputText
+                      name="placa"
+                      label="Placa"
+                      validation={control}
+                      invalid={!!errors.placa}
+                      helperText={errors.placa?.message as string}
+                      margin="none"
+                      variant="outlined"
+                    />
+                    <InputText
+                      name="modelo"
+                      label="Modelo"
+                      validation={control}
+                      invalid={!!errors.modelo}
+                      helperText={errors.modelo?.message as string}
+                      margin="none"
+                      variant="outlined"
+                    />
+                    <InputText
+                      name="cor"
+                      label="Cor"
+                      validation={control}
+                      invalid={!!errors.cor}
+                      helperText={errors.cor?.message as string}
+                      margin="none"
+                      variant="outlined"
+                    />
+                    <InputText
+                      name="marca"
+                      label="Marca"
+                      validation={control}
+                      invalid={!!errors.marca}
+                      helperText={errors.marca?.message as string}
+                      margin="none"
+                      variant="outlined"
+                    />
+                    <InputText
+                      name="potencia"
+                      label="Potência"
+                      validation={control}
+                      invalid={!!errors.potencia}
+                      helperText={errors.potencia?.message as string}
+                      margin="none"
+                      variant="outlined"
+                    />
+                  </>
+                )}
               />
             </Box>
           ) : (
