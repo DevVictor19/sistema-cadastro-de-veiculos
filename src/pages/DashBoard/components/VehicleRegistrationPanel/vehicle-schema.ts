@@ -14,7 +14,8 @@ const vehicleSchema = z
       .string({ required_error: requiredErrorMessage })
       .regex(regexPlaca, {
         message: 'Formato inválido: (AAA-1234 ou ABC1D23)',
-      }),
+      })
+      .toUpperCase(),
     renavam: z
       .string({ required_error: requiredErrorMessage })
       .nonempty({ message: nonemptyErrorMessage })
