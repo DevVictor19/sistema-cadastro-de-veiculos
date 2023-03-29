@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Controller, Control, FieldValues, Path } from 'react-hook-form';
 
 import TextField from '@mui/material/TextField';
@@ -6,7 +5,7 @@ import TextField from '@mui/material/TextField';
 interface InputTextProps<T extends FieldValues> {
   name: Path<T>;
   label: string;
-  validation: Control<T, any>;
+  validation: Control<T, unknown>;
   margin: 'none' | 'normal' | 'dense';
   variant: 'standard' | 'filled' | 'outlined' | undefined;
   invalid: boolean | undefined;
