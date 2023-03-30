@@ -7,13 +7,13 @@ import {
   FieldErrors,
 } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ZodSchema } from 'zod';
+import { ZodSchema, ZodTypeDef } from 'zod';
 import { SxProps, Theme } from '@mui/material';
 
 import Box from '@mui/material/Box';
 
 interface FormControlProps<T extends FieldValues> {
-  formValidationSchema: ZodSchema<T>;
+  formValidationSchema: ZodSchema<T, ZodTypeDef, unknown>;
   formId: string;
   defaultValues: DeepPartial<T> | null;
   styles: SxProps<Theme>;
