@@ -21,7 +21,9 @@ function VehicleAddButton() {
 
   const { isLoading, isError, isSuccess, mutate, reset } = useMutation({
     mutationFn: (payload: VehicleSchema) => postVehicle(payload),
-    onSuccess: () => queryClient.invalidateQueries(['veiculos']),
+    onSuccess: () => {
+      queryClient.invalidateQueries(['veiculos'], { exact: true });
+    },
   });
 
   const [open, setOpen] = useState(false);
