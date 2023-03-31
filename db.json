@@ -1,0 +1,48 @@
+{
+  "usuarios": [],
+  "veiculos": [
+    {
+      "placa": "AAA-4321",
+      "renavam": "12312313232",
+      "cor": "Preto",
+      "modelo": "Corolla",
+      "marca": "Honda",
+      "potencia": "3000",
+      "id": 1
+    },
+    {
+      "placa": "AFD3B43",
+      "renavam": "38493213455",
+      "cor": "Preta",
+      "modelo": "Toro",
+      "marca": "Fiat",
+      "potencia": "5000",
+      "id": 2
+    },
+    {
+      "placa": "AAA-3432",
+      "renavam": "45548302431",
+      "cor": "Branca",
+      "modelo": "Civic",
+      "marca": "Honda",
+      "potencia": "2500",
+      "id": 3
+    }
+  ],
+  "abastecimentos": [
+    {
+      "veiculoId": 1,
+      "qtdAbastecidaLitros": "100,000",
+      "tipoCombustivel": "Gasolina Aditivada",
+      "valor": "200,340",
+      "id": 1
+    },
+    {
+      "veiculoId": 1,
+      "qtdAbastecidaLitros": "50,342",
+      "tipoCombustivel": "Etanol",
+      "valor": "100,000",
+      "id": 2
+    }
+  ]
+}
