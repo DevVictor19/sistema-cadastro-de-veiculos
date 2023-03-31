@@ -33,8 +33,8 @@ function AsideMenu() {
     {
       icon: <LocalGasStationIcon />,
       label: 'Abastecimento de veículos',
-      active: false,
-      handleClick: () => {},
+      active: currentLocation === 'vehicle-supply-panel',
+      handleClick: () => navigate('vehicle-supply-panel'),
     },
   ];
 
