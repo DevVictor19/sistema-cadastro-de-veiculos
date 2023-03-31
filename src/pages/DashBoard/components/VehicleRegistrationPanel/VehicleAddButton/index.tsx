@@ -5,14 +5,11 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 
-import vehicleSchema, {
-  VehicleSchema,
-} from '~/pages/DashBoard/components/VehicleRegistrationPanel/vehicle-schema';
+import { VehicleSchema } from '~/pages/DashBoard/components/VehicleRegistrationPanel/VehicleForm/vehicle-schema';
 import Dialog from '~/components/Dialog';
-import FormControl from '~/components/forms/FormControl';
 import Feedback from '~/components/Feedback';
-import InputText from '~/components/forms/InputText';
 import postVehicle from '~/services/vehicles/postVehicle';
+import VehicleForm from '../VehicleForm';
 
 function VehicleAddButton() {
   const formId = useId();
@@ -55,74 +52,10 @@ function VehicleAddButton() {
               />
             </Box>
             {!isLoading && (
-              <FormControl
-                styles={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: 2,
-                }}
+              <VehicleForm
                 formId={formId}
                 onSubmit={handleMutation}
-                formValidationSchema={vehicleSchema}
                 defaultValues={null}
-                render={(control, errors) => (
-                  <>
-                    <InputText
-                      name="renavam"
-                      label="Renavam"
-                      validation={control}
-                      invalid={!!errors.renavam}
-                      helperText={errors.renavam?.message as string}
-                      margin="none"
-                      variant="outlined"
-                    />
-                    <InputText
-                      name="placa"
-                      label="Placa"
-                      validation={control}
-                      invalid={!!errors.placa}
-                      helperText={errors.placa?.message as string}
-                      margin="none"
-                      variant="outlined"
-                    />
-                    <InputText
-                      name="modelo"
-                      label="Modelo"
-                      validation={control}
-                      invalid={!!errors.modelo}
-                      helperText={errors.modelo?.message as string}
-                      margin="none"
-                      variant="outlined"
-                    />
-                    <InputText
-                      name="cor"
-                      label="Cor"
-                      validation={control}
-                      invalid={!!errors.cor}
-                      helperText={errors.cor?.message as string}
-                      margin="none"
-                      variant="outlined"
-                    />
-                    <InputText
-                      name="marca"
-                      label="Marca"
-                      validation={control}
-                      invalid={!!errors.marca}
-                      helperText={errors.marca?.message as string}
-                      margin="none"
-                      variant="outlined"
-                    />
-                    <InputText
-                      name="potencia"
-                      label="Potência"
-                      validation={control}
-                      invalid={!!errors.potencia}
-                      helperText={errors.potencia?.message as string}
-                      margin="none"
-                      variant="outlined"
-                    />
-                  </>
-                )}
               />
             )}
           </>
