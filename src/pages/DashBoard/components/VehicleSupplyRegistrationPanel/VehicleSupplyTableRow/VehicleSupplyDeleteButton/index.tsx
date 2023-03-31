@@ -32,6 +32,7 @@ function VehicleSupplyDeleteButton({
   const handleCloseOnSuccess = () => {
     handleClose();
     queryClient.invalidateQueries(['abastecimentos']);
+    queryClient.setQueryData(['abastecimentos', vehicleSupplyId], undefined);
   };
 
   const handleOpen = () => {
