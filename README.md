@@ -64,3 +64,8 @@ Essa aplicação, por não possuir uma api real utiliza de um servidor "mockado"
 #### Rotas protegidas
 
 Essa aplicação, utiliza o React Router para criar a navegação protegida entre páginas. Ao entrar na aplicação, o usuário não estará logado, assim apenas rotas públicas serão exibidas. Após o Login, as rotas privadas são carregadas para o usuário, sendo impossível retornar para as rotas públicas iniciais.
+
+### Preview
+![Screen Shot 2023-03-31 at 20 05 28](https://user-images.githubusercontent.com/90735982/229247857-ea4ac8c9-097c-4567-a8c5-145556821063.png)
+![Screen Shot 2023-03-31 at 20 05 52](https://user-images.githubusercontent.com/90735982/229247911-a878a505-9ccf-4efb-b1ba-579f5f164a59.png)
+![Screen Shot 2023-03-31 at 20 05 55](https://user-images.githubusercontent.com/90735982/229248143-67d586bd-d508-4ca3-a2c0-93f8a9b77abf.png)
