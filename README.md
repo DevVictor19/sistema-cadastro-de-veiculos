@@ -12,6 +12,7 @@
 - Vite
 - Material UI (MUI)
 - Zod
+- React Hook form
 - React Query
 - Axios
 - JsonServer
